@@ -1,0 +1,10 @@
+FROM openjdk:16-alpine3.13
+
+WORKDIR /app
+COPY buggyapp* .
+RUN unzip buggyapp*
+RUN sh launch.sh
+
+#CMD ["tail","-f","/dev/null"]
+#CMD ["sh","launch.sh"]
+CMD ["java","-jar","buggyApp.jar","PROBLEM_CPU"]

@@ -1,0 +1,73 @@
+version: '3.9'
+
+services:
+
+  cpu:
+    image: cpu
+    container_name: cpu
+    hostname: cpu.te
+    deploy:
+      resources:
+        limits:
+          cpus: 0.5
+          memory: 64M
+    build:
+      context: .
+      dockerfile: Dockerfile.cpu
+    restart: always
+
+  memory:
+    image: memory
+    container_name: memory
+    hostname: memory.te
+    deploy:
+      resources:
+        limits:
+          cpus: 1
+          memory: 16M
+    build:
+      context: .
+      dockerfile: Dockerfile.memory
+    restart: always
+
+  restart:
+    image: restart
+    container_name: restart
+    hostname: restart.te
+    deploy:
+      resources:
+        limits:
+          cpus: 1
+          memory: 16M
+    build:
+      context: .
+      dockerfile: Dockerfile.restart
+    restart: always
+
+  ubuntu:
+    image: ubuntu
+    container_name: ubuntu
+    hostname: ubuntu.te
+    deploy:
+      resources:
+        limits:
+          cpus: 1
+          memory: 16M
+    build:
+      context: .
+      dockerfile: Dockerfile.ubuntu
+    restart: always
+
+  amazon:
+    image: amazon
+    container_name: amazon
+    hostname: amazon.te
+    deploy:
+      resources:
+        limits:
+          cpus: 1
+          memory: 16M
+    build:
+      context: .
+      dockerfile: Dockerfile.amazon
+    restart: always
