@@ -1,6 +1,22 @@
 
 services:
 
+  te-ubuntu:
+    image: te-ubuntu
+    container_name: te-ubuntu
+    hostname: ubuntu.te
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 16M
+    build:
+      context: .
+      dockerfile: Dockerfile.ubuntu
+    restart: 'always'
+    ports:
+      - 8080:8080
+
   te-cpu:
     image: te-cpu
     container_name: te-cpu
@@ -14,6 +30,8 @@ services:
       context: .
       dockerfile: Dockerfile.cpu
     restart: 'always'
+    ports:
+      - 8081:9010
 
   te-memory:
     image: te-memory
@@ -28,6 +46,8 @@ services:
       context: .
       dockerfile: Dockerfile.memory
     restart: 'always'
+    ports:
+      - 8082:9010
 
   te-restart:
     image: te-restart
@@ -42,17 +62,5 @@ services:
       context: .
       dockerfile: Dockerfile.restart
     restart: 'always'
-
-  te-ubuntu:
-    image: te-ubuntu
-    container_name: te-ubuntu
-    hostname: ubuntu.te
-    deploy:
-      resources:
-        limits:
-          cpus: '1'
-          memory: 16M
-    build:
-      context: .
-      dockerfile: Dockerfile.ubuntu
-    restart: 'always'
+    ports:
+      - 8083:9010
