@@ -26,6 +26,7 @@ spec:
       containers:
         - image: te-memory
           name: te-memory
+          imagePullPolicy: Never
           ports:
             - containerPort: 9010
           resources:
@@ -33,5 +34,4 @@ spec:
               cpu: "1"
               memory: "16777216"
       restartPolicy: Always
-      imagePullPolicy: never
 status: {}
