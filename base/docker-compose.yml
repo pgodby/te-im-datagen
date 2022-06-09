@@ -1,9 +1,9 @@
 
 services:
 
-  cpu:
-    image: cpu
-    container_name: cpu
+  te-cpu:
+    image: te-cpu
+    container_name: te-cpu
     hostname: cpu.te
     deploy:
       resources:
@@ -15,9 +15,9 @@ services:
       dockerfile: Dockerfile.cpu
     restart: 'always'
 
-  memory:
-    image: memory
-    container_name: memory
+  te-memory:
+    image: te-memory
+    container_name: te-memory
     hostname: memory.te
     deploy:
       resources:
@@ -29,9 +29,9 @@ services:
       dockerfile: Dockerfile.memory
     restart: 'always'
 
-  restart:
-    image: restart
-    container_name: restart
+  te-restart:
+    image: te-restart
+    container_name: te-restart
     hostname: restart.te
     deploy:
       resources:
@@ -43,9 +43,9 @@ services:
       dockerfile: Dockerfile.restart
     restart: 'always'
 
-  ubuntu:
-    image: ubuntu
-    container_name: ubuntu
+  te-ubuntu:
+    image: te-ubuntu
+    container_name: te-ubuntu
     hostname: ubuntu.te
     deploy:
       resources:
